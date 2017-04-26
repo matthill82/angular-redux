@@ -1,0 +1,5 @@
+{
+  "/api/": "/",
+  "/selectedCountries": "/selectedCountries",
+  "/country/:country": "/country?q=:country"
+}

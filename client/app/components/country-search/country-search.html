@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="countrySearch">
+        <div class="col-lg-12">
+            <h4>Country Search</h4>
+
+            <!-- Country search input -->
+            <div class="input-group countrySearch__input">
+                <span class="input-group-btn">
+                    <input type="text" class="form-control" placeholder="Search for a country here...."
+                           ng-model="$ctrl.countries">
+                  </span>
+            </div>
+
+            <div class="input-group">
+                <span class="help-block" ng-if="$ctrl.countries.length < 2 && $ctrl.countries.length > 0">Too short</span>
+            </div>
+
+            <hr>
+
+            <!-- Country search results -->
+            <h4>Country Results</h4>
+            <div class="countrySearch__results checkbox">
+                <ul class="list-group">
+                    <li class="list-group-item" ng-if="!$ctrl.countryResults.length">There are no results yet</li>
+                    <li class="list-group-item" ng-if="$ctrl.countryResults.length"
+                        ng-repeat="country in $ctrl.countryResults">{{country.name}}
+                        <span class="pull-right countrySearch__addbtn">
+                            <button class="btn btn-sm btn-success" ng-click="$ctrl.chooseCountry(country)">Add</button>
+                            <button class="btn btn-sm btn-warning">
+                              <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Country search additions this is an example of using components within components -->
+            <country-addition></country-addition>
+
+            <h4 ng-if="$ctrl.messages" ng-bind="$ctrl.messages"></h4>
+
+            <!-- Country search submit -->
+            <div class="countrySearch__submit">
+                <button class="btn btn-block btn-success" type="submit"
+                        ng-click="$ctrl.sendCountry()">Submit
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>

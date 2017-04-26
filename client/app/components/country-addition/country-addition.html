@@ -1,0 +1,15 @@
+<!-- Country search additions -->
+<h5>Country Additions</h5>
+<div class="checkbox" ng-if="$ctrl.countriesAdded">
+    <ul class="list-group">
+        <li class="list-group-item" ng-if="!$ctrl.countriesAdded.length">No countries added yet!!</li>
+        <li class="list-group-item" ng-repeat="country in $ctrl.countriesAdded track by $index">
+            {{country.name}}
+            <span class="pull-right countrySearch__addbtn">
+                <button class="btn btn-sm btn-warning" ng-click="$ctrl.removeCountry(country, $index)">
+                  <span class="glyphicon glyphicon-trash"></span>
+                </button>
+            </span>
+        </li>
+    </ul>
+</div>
